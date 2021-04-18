@@ -4,8 +4,7 @@ void main(){
 bool primeNum = true;
 
 //variable declared
-int num = 0;
-
+int num = 57;
 
 //condition to iterate if input num is prime or not 
   for (int i = 2; i < num; i++) {
