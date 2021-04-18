@@ -1,0 +1,30 @@
+/**Given two numbers, return true if the sum of
+both numbers is less than 100. Otherwise
+return false. **/
+
+void main() {
+  
+  int lessThan100(int num1, int num2) {
+  
+  //a variable to store the total of numbers
+  var total = num1 + num2;
+  
+  //a variable to check the 100
+  var hundred = 100;
+ 
+  //the condition to check the number meets the requirement
+  if (total < hundred) {
+    print('The total number is: $total, which is less than $hundred so it TRUE');
+    return total;
+  } else {
+    print('The total number is: $total, which is greater than $hundred so it FALSE');
+   return total;
+  }
+}
+  //print the method
+  
+print(lessThan100(22, 15));
+print(lessThan100(83, 34)); 
+print(lessThan100(3, 77));
+
+}
