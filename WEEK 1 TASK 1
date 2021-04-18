@@ -1,0 +1,21 @@
+void main(){
+
+bool primeNum = true;
+
+int num = 0;
+
+int knowPrime(int num) {
+
+  for (int i = 2; i < num; i++) {
+    if (num % i == 0) {
+      primeNum = false;
+    }
+  }
+
+  if (primeNum) {
+    print('prime');
+  } else {
+    print('not prime');
+  }
+}
+}
