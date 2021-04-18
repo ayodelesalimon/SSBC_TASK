@@ -4,21 +4,21 @@ return false. **/
 
 void main() {
   
-  int lessThan100(int num1, int num2) {
+  bool lessThan100(int num1, int num2) {
   
   //a variable to store the total of numbers
   var total = num1 + num2;
   
-  //a variable to check the 100
+  // variable to check the 100
   var hundred = 100;
  
   //the condition to check the number meets the requirement
   if (total < hundred) {
     print('The total number is: $total, which is less than $hundred so it TRUE');
-    return total;
+    return true;
   } else {
     print('The total number is: $total, which is greater than $hundred so it FALSE');
-   return total;
+   return false;
   }
 }
   //print the method
