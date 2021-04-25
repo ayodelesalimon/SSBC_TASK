@@ -1,0 +1,72 @@
+/* 
+
+Lab 3
+Given an array arr[] of size N which contains
+the marks of a student in N subjects, the task
+is to calculate the CGPA and the CGPA
+percentage of the student. 
+
+ */
+
+
+import 'dart:io';
+void main() {
+  calcCpga();
+}
+
+void calcCpga() {
+//empty list to store the score input by user
+  var listScore = [];
+  
+  //empty list to store the average score input by user
+  var listAverage = [];
+
+//user input score
+  print('Kindly Enter You Exam Score');
+  print('First SCORE');
+  var firstScore = double.parse(stdin.readLineSync());
+  var firstAverage = firstScore / 10;
+  listScore.add(firstScore);
+  listAverage.add(firstAverage);
+
+
+  print('Second SCORE');
+  var secondScore = double.parse(stdin.readLineSync());
+  var secondAverage = secondScore / 10;
+  listScore.add(secondScore);
+  listAverage.add(secondAverage);
+
+
+  print('Third SCORE');
+  var thirdScore = double.parse(stdin.readLineSync());
+  var thirdAverage = thirdScore / 10;
+  listScore.add(thirdScore);
+  listAverage.add(thirdAverage);
+
+  print('Fourth SCORE');
+  var fourthScore = double.parse(stdin.readLineSync());
+  var fourthAverage = fourthScore / 10;
+  listScore.add(fourthScore);
+  listAverage.add(fourthAverage);
+  
+
+  print('Fifth SCORE');
+  var fifthScore = double.parse(stdin.readLineSync());
+  var fifthAverage = fifthScore / 10;
+  listScore.add(fifthScore);
+  listAverage.add(fifthAverage);
+  
+  
+  //Sum up the total of items in the listAverage
+  var ave = listAverage.reduce((value, element) => value + element);
+
+//calculate CGPA
+  var calCgpa = ave / listAverage.length;
+  
+  //calculate Percentage
+  var perCent = calperCent * 9.5;
+  
+  print('\nScore: $listScore');
+  print('\nCGPA: $calCgpa');
+  print('\nPercentage: $perCent');
+}
