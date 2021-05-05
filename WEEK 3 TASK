@@ -1,0 +1,131 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(SignInScreen());
+
+
+class SignInScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Form validation",
+      home: LoginScreen(),
+    );
+  }
+}
+
+class LoginScreen extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return LoginScreenState();
+  }
+}
+
+class LoginScreenState extends State<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  String _email;
+  String _password;
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return new Scaffold(
+        key: _scaffoldKey,
+       // appBar: new AppBar(title: new Text("Login")),
+        body: new Container(
+            decoration: BoxDecoration(color: Colors.black),
+            padding: const EdgeInsets.all(20.0),
+            child: Form(
+              key: _formKey,
+              child: new Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text("Sign in", style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800)),
+                  SizedBox(
+                    height: 100,
+                  ),
+                  Text("WELCOME BACK", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800)),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                  
+                    decoration: BoxDecoration(color: Colors.white,
+                    
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                    child: new TextFormField(
+                      decoration: InputDecoration(
+                          border: const OutlineInputBorder(),
+                          hintText: "ayodelesalimonu@gmail.com",
+                          labelText: "Email"),
+                      keyboardType: TextInputType.emailAddress,
+                      validator: (val) {
+                        if (val.length == 0)
+                          return "Please enter email";
+                        else if (!val.contains("@"))
+                          return "Please enter valid email";
+                        else
+                          return null;
+                      },
+                      onSaved: (val) => _email = val,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(color: Colors.white,
+                    
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                    child: new TextFormField(
+                      
+                      decoration: InputDecoration(
+                        fillColor: Colors.white,
+                          border: const OutlineInputBorder(
+                           // borderRadius: BorderRadius.all(Radius.circular(5.0))
+                          ),
+                          hintText: "Password",
+                          labelText: "Password"),
+                      obscureText: true,
+                      validator: (val) {
+                        if (val.length == 0)
+                          return "Please enter password";
+                        else if (val.length <= 5)
+                          return "Your password should be more then 6 char long";
+                        else
+                          return null;
+                      },
+                      onSaved: (val) => _password = val,
+                    ),
+                  ),
+                  new Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                  ),
+                  Container(
+                    width: 400,
+                    child: new ElevatedButton(
+                      child: new Text("Sign in"),
+                      onPressed: () {
+                        if (_formKey.currentState.validate()) {
+                          _formKey.currentState.save();
+                        }
+                      },
+                      style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.lightBlueAccent)),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text('Forgot Password?', style: TextStyle(color: Colors.white,)),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text("New Registration", style: TextStyle(color: Colors.lightBlueAccent,)),
+                ],
+              ),
+            )));
+  }
+}
